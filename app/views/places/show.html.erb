@@ -1,9 +1,13 @@
 
+<!-- Name, Address, Description -->
+
 <div class="booyah-box col-10 offset-1">
   <h1><%= @place.name %></h1>
   <i><%= @place.address %></i>
   <br /><br />
   <p><%= @place.description %></p>
+
+<!-- Map -->
 
 <% if @place.latitude.present? && @place.longitude.present? %>
 
@@ -35,6 +39,8 @@
 <br />
 <br />
 
+<!-- Edit & Destroy buttons -->
+
   <div class="float-right">
 
     <% if current_user && current_user == @place.user %>
@@ -44,7 +50,7 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Comment Entry Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -77,6 +83,8 @@
 </div>
 
 <div class="clear"></div>
+
+<!-- Displayed Comments -->
 
 <div class="row">
   <% @place.comments.each do |comment| %>
